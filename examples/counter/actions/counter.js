@@ -13,6 +13,16 @@ export function decrement() {
   }
 }
 
+export function incrementIfEven() {
+  return (dispatch, getState) => {
+    const { counter } = getState()
+
+    if (counter % 2 === 0) {
+      dispatch(increment())
+    }
+  }
+}
+
 export function incrementIfOdd() {
   return (dispatch, getState) => {
     const { counter } = getState()

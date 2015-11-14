@@ -24,7 +24,7 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
+    const { todo, completeTodo, starTodo, deleteTodo } = this.props
 
     let element
     if (this.state.editing) {
@@ -43,6 +43,9 @@ class TodoItem extends Component {
           <label onDoubleClick={this.handleDoubleClick.bind(this)}>
             {todo.text}
           </label>
+          <button onClick={() => starTodo(todo.id, todo.starred)}>
+            {todo.starred ? "*" : "x"}
+          </button>
           <button className="destroy"
                   onClick={() => deleteTodo(todo.id)} />
         </div>
@@ -63,6 +66,7 @@ class TodoItem extends Component {
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   editTodo: PropTypes.func.isRequired,
+  starTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   completeTodo: PropTypes.func.isRequired
 }

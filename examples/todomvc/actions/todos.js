@@ -12,6 +12,10 @@ export function editTodo(id, text) {
   return { type: types.EDIT_TODO, id, text }
 }
 
+export function starTodo(id, starred) {
+  return { type: types.STAR_TODO, id, starred }
+}
+
 export function completeTodo(id) {
   return { type: types.COMPLETE_TODO, id }
 }

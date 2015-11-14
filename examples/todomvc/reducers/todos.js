@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, STAR_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
 
 const initialState = [
   {
@@ -29,6 +29,13 @@ export default function todos(state = initialState, action) {
       return state.map(todo =>
         todo.id === action.id ?
           Object.assign({}, todo, { text: action.text }) :
+          todo
+      )
+
+    case STAR_TODO:
+      return state.map(todo =>
+        todo.id === action.id ?
+          Object.assign({}, todo, { starred: action.starred ? false : true }) :
           todo
       )
 

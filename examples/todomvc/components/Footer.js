@@ -1,11 +1,12 @@
 import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_STARRED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
   [SHOW_ACTIVE]: 'Active',
-  [SHOW_COMPLETED]: 'Completed'
+  [SHOW_COMPLETED]: 'Completed',
+  [SHOW_STARRED]: 'Starred'
 }
 
 class Footer extends Component {
@@ -50,7 +51,7 @@ class Footer extends Component {
       <footer className="footer">
         {this.renderTodoCount()}
         <ul className="filters">
-          {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
+          {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED, SHOW_STARRED ].map(filter =>
             <li key={filter}>
               {this.renderFilterLink(filter)}
             </li>
