@@ -15,7 +15,7 @@ class App extends Component {
           onAddSubmit={text => dispatch(addTodo(text))} />
         <TodoList
           todos={visibleTodos}
-          onTodoClick={index => dispatch(completeTodo(index))} />
+          onTodoClick={(index, completed) => dispatch(completeTodo(index, completed))} />
         <Footer
           filter={visibilityFilter}
           onFilterChange={nextFilter => dispatch(setVisibilityFilter(nextFilter))}
